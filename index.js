@@ -68,4 +68,20 @@ function transliteration(input, space = "-", unknown = "") {
     return s;
 }
 
-module.exports = transliteration;
+/**
+ * привет, дядя -> privet-diadia
+ * @param {String} input
+ * @param {String} space
+ * @param {String} unknown
+ * @returns {String}
+ */
+function name(input, space = "-", unknown = "-") {
+    return transliteration(input, space, unknown)
+        .replace(/\-+/g, '-')
+        .replace(/^\-+/, '')
+        .replace(/\-+$/, '')
+        .toLowerCase();
+}
+
+module.exports.transliteration = transliteration;
+module.exports.name = name;
