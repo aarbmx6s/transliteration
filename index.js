@@ -44,7 +44,7 @@ const CHARS = new Map([
  * @param {String} unknown
  * @returns {String}
  */
-function transliteration(input, space = "-", unknown = "") {
+function transliterate(input, space = "-", unknown = "") {
     let s = "";
 
     for ( let c = 0; c < input.length; c++ ) {
@@ -76,12 +76,12 @@ function transliteration(input, space = "-", unknown = "") {
  * @returns {String}
  */
 function name(input, space = "-", unknown = "-") {
-    return transliteration(input, space, unknown)
+    return transliterate(input, space, unknown)
         .replace(/\-+/g, '-')
         .replace(/^\-+/, '')
         .replace(/\-+$/, '')
         .toLowerCase();
 }
 
-module.exports.transliteration = transliteration;
+module.exports.transliterate = transliterate;
 module.exports.name = name;
