@@ -71,12 +71,10 @@ function transliterate(input, space = "-", unknown = "") {
 /**
  * привет, дядя -> privet-diadia
  * @param {String} input
- * @param {String} space
- * @param {String} unknown
  * @returns {String}
  */
-function name(input, space = "-", unknown = "-") {
-    return transliterate(input, space, unknown)
+function name(input) {
+    return transliterate(input, '-', '-')
         .replace(/\-+/g, '-')
         .replace(/^\-+/, '')
         .replace(/\-+$/, '')
